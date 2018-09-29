@@ -4,4 +4,5 @@ export interface Usuariosinterface {
     Direccion?: string;
     Nombre?: string;
     Telefono?: string;
+    Id?: string;
 }

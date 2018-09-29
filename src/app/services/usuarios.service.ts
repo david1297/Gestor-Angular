@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Usuariosinterface } from '../Interfaces/Usuarios.Interface';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +13,15 @@ export class UsuariosService {
   UsuariosColection: AngularFirestoreCollection<Usuariosinterface>;
   Usuarios: Observable<Usuariosinterface[]>;
   UsuariosDoc: AngularFirestoreDocument<Usuariosinterface>;
+  public User: AngularFirestore;
   constructor(public afs: AngularFirestore) {
-    this.UsuariosColection = afs.collection<Usuariosinterface>('Usuarios');
+    
+
+   }
+
+  getUserLogin(Correo: string) {
+    this.UsuariosColection = this.afs.collection<Usuariosinterface>('Usuarios',
+     ref => ref.where('Correo', '==', Correo ));
     this.Usuarios = this.UsuariosColection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Usuariosinterface;
@@ -21,8 +29,9 @@ export class UsuariosService {
         return { Id, ...data};
       }))
     );
+    return this.Usuarios;
+  }
 
-   }
    GetUsuarios() {
     return this.Usuarios;
   }
