@@ -1,0 +1,79 @@
+<div id="main-content">
+  <div *ngFor="let Usuario of Usuarios" class="container-fluid">
+    <div class="section-heading">
+      <h1 class="page-title">Perfil Del Usuario</h1>
+    </div>
+    <form (ngSubmit)="onUpdateUsuario(Usuario)" >
+      <div class="tab-content content-profile">
+        <!-- MY PROFILE -->
+        <div class="tab-pane fade in active" id="myprofile">
+          <div class="profile-section">
+            <h2 class="profile-heading">Foto De Perfil</h2>
+            <div class="media">
+              <div class="media-left">
+                <img src="{{Usuario.Imagen}}" class="user-photo media-object" alt="User">
+              </div>
+              <div class="media-body">
+                <p>Subir Foto.
+                  <br> <em>La imagen debe ser al menos 140px x 140px</em></p>
+                  
+                <input [(ngModel)]="Usuario.Imagen" #Imagen="ngModel" type="text" name="Imagen" id="Imagen"  class="sr-only">
+              </div>
+              <input type="file" (change)="upload($event)" accept="image/*" class="form-control">
+
+            </div>
+          </div>
+          <div class="profile-section">
+
+            <div class="clearfix">
+              <div class="left">
+                <h2 class="profile-heading">Informacion Basica</h2>
+                <div class="form-group">
+                  <label>Nombres</label>
+                  <input [(ngModel)]="Usuario.Nombre" #Nombre="ngModel" type="text" name="Nombre" id="Nombre"  class="form-control">
+                  <br>
+                  <label>Apellidos</label>
+                  <input [(ngModel)]="Usuario.Apellido" #Apellido="ngModel" type="text" name="Apellido" id="Apellido" class="form-control">
+                  <br>
+                  <label>Direccion</label>
+                  <input [(ngModel)]="Usuario.Direccion" #Direccion="ngModel" type="text" name="Direccion" id="Direccion" class="form-control">
+                  <br>
+                  <label>Telefono</label>
+                  <input [(ngModel)]="Usuario.Telefono" #Telefono="ngModel" type="text" name="Telefono" id="Telefono" class="form-control">
+                </div>
+              </div>
+              <!-- END LEFT SECTION -->
+              <!-- RIGHT SECTION -->
+              <div class="right">
+                <h2 class="profile-heading">Cuenta</h2>
+                <div class="form-group">
+                  <br>
+                  <label>Correo</label>
+                  <input type="email" Name="Correo" class="form-control">
+                  <br>
+                  <label>Rol</label>
+                  <input type="text" Name="Rol" class="form-control" readonly>
+                </div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">Cambiar
+                  Contraseña</button>
+              </div>
+              <!-- END RIGHT SECTION  onclick="get_user_id('<?php echo $rw_user['Usuario'];?>');" data-toggle="modal" data-target="#myModal3" -->
+            </div>
+            <div id="resultados_ajax2"></div>
+            <p class="margin-top-30">
+              <button type="submit" class="btn btn-primary">Guardar</button> &nbsp;&nbsp;
+              <button type="button" class="btn btn-default">Cancelar</button>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END MAIN CONTENT -->
+<div class="clearfix"></div>
+<footer>
+  <p class="copyright">&copy; Copyright <a href="https://www.tupro.com.co/" target="_blank">TuPro Creativo. </a>Todos
+    los derechos reservados</p>
+</footer>

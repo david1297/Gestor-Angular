@@ -93,7 +93,7 @@
             <ul class="dropdown-menu user-menu menu-icon">
               <li class="menu-heading">CONFIGURACIONES DE LA CUENTA</li>
               <li><a href="#"><i class="fa fa-fw fa-bell"></i> <span>Notificaciones</span></a></li>
-              <li><a href="Perfil.php"><i class="fas fa-sliders-h"></i> <span>Preferencias</span></a></li>
+              <li><a routerLink="/perfil"><i class="fas fa-sliders-h"></i> <span>Preferencias</span></a></li>
               <li><a href="" (click)="onClickLogout()"><i class="fa fa-fw fa-sign-out-alt"></i> <span>Cerrar Sesion</span></a></li>
             </ul>
           </li>
@@ -109,14 +109,14 @@
   </button>
   <div class="sidebar-scroll">
     <div class="user-account">
-      <img src="" width="50%" class="img-responsive img-circle user-photo" alt="User Profile Picture">
+      <img src="{{Imagen}}" width="50%" class="img-responsive img-circle user-photo" alt="User Profile Picture">
       <div class="dropdown">
         <a href="#" class="dropdown-toggle user-name">Hola, <strong>{{Nombre}} {{Apellido}}</strong></a>
       </div>
     </div>
     <nav id="left-sidebar-nav" class="sidebar-nav">
       <ul id="main-menu" class="metismenu">
-        <li class=""><a href="index.php"><i class="lnr lnr-home"></i> <span>Inicio</span></a></li>
+        <li class=""><a routerLink="/"><i class="lnr lnr-home"></i> <span>Inicio</span></a></li>
         <li class="">
           <a href="#uiElements" class="has-arrow" aria-expanded="false"><i class="lnr lnr-rocket"></i> <span>Proyectos</span></a>
           <ul aria-expanded="true">

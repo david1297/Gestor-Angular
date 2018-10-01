@@ -12,7 +12,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 export class MenuComponent implements OnInit {
 public isLogin: boolean;
 public emailUsuario: string;
-public fotoUsuario: string;
+public Imagen: string;
 public Login: string;
 public Apellido: string;
 public Direccion: string;
@@ -32,8 +32,8 @@ UsuariosToEdit: Usuariosinterface;
       if (auth) {
         this.isLogin = true;
         this.emailUsuario = auth.email;
-        this.fotoUsuario = auth.photoURL;
         this.Login = '';
+        this.authService.user = auth.email;
         console.log('Loget');
         this.usuarioService.getUserLogin(this.emailUsuario).subscribe(Usuarios => {
           this.Usuarios = Usuarios;
@@ -44,6 +44,7 @@ UsuariosToEdit: Usuariosinterface;
               this.Direccion = User.Direccion;
               this.Telefono = User.Telefono;
               this.Id = User.Id;
+              this.Imagen = User.Imagen;
           });
         });
       } else {

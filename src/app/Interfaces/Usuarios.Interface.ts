@@ -5,4 +5,5 @@ export interface Usuariosinterface {
     Nombre?: string;
     Telefono?: string;
     Id?: string;
+    Imagen?: string;
 }

@@ -14,10 +14,7 @@ export class UsuariosService {
   Usuarios: Observable<Usuariosinterface[]>;
   UsuariosDoc: AngularFirestoreDocument<Usuariosinterface>;
   public User: AngularFirestore;
-  constructor(public afs: AngularFirestore) {
-    
-
-   }
+  constructor(public afs: AngularFirestore) { }
 
   getUserLogin(Correo: string) {
     this.UsuariosColection = this.afs.collection<Usuariosinterface>('Usuarios',
@@ -35,4 +32,8 @@ export class UsuariosService {
    GetUsuarios() {
     return this.Usuarios;
   }
+  updateUsuario(Usuario: Usuariosinterface) {
+    this.UsuariosDoc = this.afs.doc(`Usuarios/${Usuario.Id}`);
+    this.UsuariosDoc.update(Usuario);
+
 }

@@ -17,6 +17,8 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { UsuariosService } from './services/usuarios.service';
+import {  AngularFireStorageModule } from 'angularfire2/storage';
+import { InfoUsuarioComponent } from './Componentes/info-usuario/info-usuario.component';
 
 
 
@@ -26,7 +28,8 @@ import { UsuariosService } from './services/usuarios.service';
     RegistroComponent,
     HomeComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    InfoUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { UsuariosService } from './services/usuarios.service';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'Gestor-Proyectos'),
     AngularFirestoreModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    AngularFireStorageModule
   ],
   providers: [AuthService, AuthGuard, FlashMessagesService, UsuariosService],
   bootstrap: [AppComponent]
